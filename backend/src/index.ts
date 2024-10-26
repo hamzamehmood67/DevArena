@@ -32,11 +32,12 @@ app.post('/api/v1/signup', async (c) => {
 
 		return c.json({jwt})
 	} catch(e) {
+		console.log(e);
 		return c.status(403);
 	}
 })
 
-app.post('/api/v1/signin', async(c) => {ls
+app.post('/api/v1/signin', async(c) => {
 
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL,
